@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel World - 3D Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        .control-item {
+            margin: 3px 0;
+        }
+
+        #inventory {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: white;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        .inventory-slot {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 2px;
+            border: 2px solid #ccc;
+            background: rgba(100, 100, 100, 0.5);
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .inventory-slot.selected {
+            border-color: #fff;
+            background: rgba(150, 150, 150, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="ui">
+        <div>Voxel World</div>
+        <div id="fps">FPS: 0</div>
+        <div id="pos">Position: 0, 0, 0</div>
+        <div id="chunks">Chunks: 0</div>
+    </div>
+
+    <div id="controls">
+        <div class="control-item"><strong>WASD</strong> - Move</div>
+        <div class="control-item"><strong>Space</strong> - Jump</div>
+        <div class="control-item"><strong>Shift</strong> - Sprint</div>
+        <div class="control-item"><strong>Mouse</strong> - Look Around</div>
+        <div class="control-item"><strong>LClick</strong> - Destroy Block</div>
+        <div class="control-item"><strong>RClick</strong> - Place Block</div>
+        <div class="control-item"><strong>1-6</strong> - Select Block</div>
+        <div class="control-item"><strong>F</strong> - Fullscreen</div>
+    </div>
+
+    <div id="inventory">
+        <div><strong>Inventory</strong></div>
+        <div id="slots"></div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
